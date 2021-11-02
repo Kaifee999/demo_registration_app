@@ -55,8 +55,3 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise'
 gem 'devise-bootstrapped', github: 'king601/devise-bootstrapped'
-<<<<<<< HEAD
-ruby "2.6.5"
-=======
-ruby "2.7.4"
->>>>>>> 4b9afb89ead1284e427bf037b55cdf5677a5fe8f
