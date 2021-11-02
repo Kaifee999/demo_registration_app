@@ -1,0 +1,73 @@
+<h3><centre>Hello! This is my demo registration App.</centre></h3>
+ 
+<%= link_to "Log out", destroy_user_session_path, :method => :delete %>
+<%=link_to "students scoreboard", users_index_path, :method => :get %>
+
+
+<% if current_user.role == "teacher" %>
+  <%= link_to "Create Exam", exams_new_path, :method => :get %>
+<%end%>  
+
+
+<% if current_user.role == "teacher" %>
+
+<style>
+table, th, td {
+  border:1px solid black;
+}
+</style>
+
+<h2>List of Exams</h2>
+
+<table style="width:100%">
+  <tr>
+    <th>Subject</th>
+  </tr>
+  <%@exams.each do |exam|%>
+  <tr>
+    <td><%=exam.subject%></td>
+    <td><%= link_to "Add Question", question_new_path(exam_id: exam.id) %></td>
+    <td><%= link_to "Show Exam", show_exam_path(exam_id: exam.id) %></td>
+    <td><%= link_to "Delete Exam", delete_exam_path(exam_id: exam.id), :method => :delete %></td>
+  </tr>
+  <%end%>
+
+</table>
+
+
+<%else%>
+
+
+<style>
+table, th, td {
+  border:1px solid black;
+}
+</style>
+
+<h2>Take Exam</h2>
+
+<table style="width:100%">
+  <tr>
+    <th>Subject</th>
+  </tr>
+  <%@exams.each do |exam|%>
+  <tr>
+    <td><%=exam.subject%></td>
+    <td><%= link_to "Take Exam", exam_questions_path(exam_id: exam.id)%></td>
+  </tr>
+  <%end%>
+
+</table>
+<%end%>
+
+
+
+
+
+
+
+
+
+
+
+

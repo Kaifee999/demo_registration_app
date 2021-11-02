@@ -1,0 +1,14 @@
+
+<h3>This is Student Answer New Page.</h3>
+
+
+<%= form_tag student_answer_create_path, method: :post do %>
+  <%= text_field_tag :answer %><br><br>
+  <%= hidden_field_tag(:exam_id, @exam_id) %>
+  <%= hidden_field_tag(:question_id, @question_id) %>
+  <%= hidden_field_tag(:user_id, @user_id) %>
+
+  <%= submit_tag("Submit") %>
+<%end%>
+
+

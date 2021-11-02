@@ -1,0 +1,31 @@
+
+<style>
+  table, th, td {
+  border:1px solid black;
+  }
+</style>
+<h2>Questions</h2>
+
+<table style="width:100%">
+    <tr>
+      <th>Question</th>
+      <th>First Option</th>
+      <th>Second Option</th>
+      <th>Third Option</th>
+      <th>Fourth Option</th>
+      <th>Correct Option</th>
+    </tr>
+    <%@questions.each do |question|%>
+    <tr>
+      <td><%=question.question%></td>
+      <td><%=question.first_option%></td>
+      <td><%=question.second_option%></td>
+      <td><%=question.third_option%></td>
+      <td><%=question.fourth_option%></td>
+      <td><%=question.correct_option%></td>
+    </tr>
+    <%end%>
+
+</table>
+
+
