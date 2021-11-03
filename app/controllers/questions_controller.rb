@@ -14,18 +14,3 @@ class QuestionsController < ApplicationController
 end
 
 
-	# def delete_question
-	# 	question_id = params[:question_id]
-    # exam.questions.find(question_id) 
-
-    #   @question = Question.find(question_id)
-	#   @question.destroy
-	# end
-
-	# def show_question
- #        # exam_id = params[:exam_id]
- #        # @question = Question.find(exam_id)
- #        question_id = params[:question_id]
- #        @question = Exam.questions.find(question_id) 
- #    end
-
