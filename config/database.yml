@@ -8,6 +8,6 @@ default: &default
 
 development:
   <<: *default
-  database: demo_registration_app_development
-
+  # database: demo_registration_app_development
+  database: demo_registration_new_development
   

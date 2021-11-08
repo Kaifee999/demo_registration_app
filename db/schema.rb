@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20211025074442) do
+ActiveRecord::Schema.define(version: 20211103091957) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,17 +23,15 @@ ActiveRecord::Schema.define(version: 20211025074442) do
 
   create_table "questions", force: :cascade do |t|
     t.string   "question"
-    t.string   "correct_option"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
     t.string   "first_option"
     t.string   "second_option"
     t.string   "third_option"
     t.string   "fourth_option"
+    t.string   "correct_option"
     t.integer  "exam_id"
-    t.integer  "student_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
     t.index ["exam_id"], name: "index_questions_on_exam_id", using: :btree
-    t.index ["student_id"], name: "index_questions_on_student_id", using: :btree
   end
 
   create_table "student_answers", force: :cascade do |t|
@@ -46,12 +44,6 @@ ActiveRecord::Schema.define(version: 20211025074442) do
     t.index ["exam_id"], name: "index_student_answers_on_exam_id", using: :btree
     t.index ["question_id"], name: "index_student_answers_on_question_id", using: :btree
     t.index ["user_id"], name: "index_student_answers_on_user_id", using: :btree
-  end
-
-  create_table "students", force: :cascade do |t|
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -71,7 +63,6 @@ ActiveRecord::Schema.define(version: 20211025074442) do
   end
 
   add_foreign_key "questions", "exams"
-  add_foreign_key "questions", "students"
   add_foreign_key "student_answers", "exams"
   add_foreign_key "student_answers", "questions"
   add_foreign_key "student_answers", "users"
